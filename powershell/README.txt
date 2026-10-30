@@ -1,11 +1,11 @@
 THE WOLF AMONG US REMASTERED - ULTRAWIDE FIX
-PowerShell edition 0.1.0 - community test release
+PowerShell edition 0.1.1 - community test release
 
 WHAT IT DOES
 
 Removes the supported game's forced 16:9 rendering restriction and adds common ultrawide resolutions to its graphics menu. A console menu lets you pick a preset or enter custom dimensions. Setup can also undo its changes.
 
-This edition uses Windows PowerShell 5.1 and included readable C# helper source. PowerShell compiles that source locally using the Windows .NET Framework, then loads it. It is still runnable code: removing the separate setup executable does not make the package automatically trusted or guarantee Nexus approval.
+This edition uses Windows PowerShell 5.1 and included readable C# helper source. PowerShell compiles that source locally using the Windows .NET Framework, then loads it.
 
 QUICK START
 
@@ -18,7 +18,7 @@ QUICK START
 
 If the game is in a protected folder such as Program Files and you see an access-denied message, open Windows PowerShell as administrator and run the script from there. Open Start, search for "Windows PowerShell", then choose "Run as administrator". Use the full path to the extracted script, for example:
 
-  & "C:\Mods\Ultrawide-Fix-PowerShell-0.1.0\Ultrawide Setup.ps1"
+  & "C:\Mods\Ultrawide-Fix-PowerShell-0.1.1\Ultrawide Setup.ps1"
 
 Use Windows PowerShell (powershell.exe), not PowerShell 7 (pwsh.exe). You can also open Windows PowerShell, change to the extracted folder and run:
 
@@ -28,9 +28,9 @@ POWERSHELL SCRIPT POLICY
 
 Some systems block local scripts by default. A process-only RemoteSigned setting can be used for this run:
 
-  powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File "C:\Mods\Ultrawide-Fix-PowerShell-0.1.0\Ultrawide Setup.ps1"
+  powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File "C:\Mods\Ultrawide-Fix-PowerShell-0.1.1\Ultrawide Setup.ps1"
 
-This setting applies to that PowerShell process, not the saved system policy. RemoteSigned still applies its checks to files marked as downloaded; managed policies can also prevent script execution. The mod does not alter execution policy, registry or antivirus settings itself. An execution-policy block and a Nexus quarantine are different checks; this script edition does not establish that an uploaded file has passed Nexus review.
+This setting applies to that PowerShell process, not the saved system policy. RemoteSigned still applies its checks to files marked as downloaded; managed policies can also prevent script execution. The mod does not alter execution policy, registry or antivirus settings itself.
 
 RESOLUTIONS
 
@@ -85,6 +85,6 @@ No internet connection is used by setup. Files installed in the game are the sam
 
 VALIDATION
 
-Windows PowerShell 5.1 loaded the helper source and correctly detected the primary display. Private-fixture tests passed for all four presets, custom mode generation, encrypted-script round trips, installation, repeated updates, exact undo, restoration of a recognized prior addon, unsupported-build refusal, changed-file refusal and preservation of unrelated files. Generated Lua bytecode and TTARCH2 structure are checked separately. These are installation/generation checks, not proof of every resolution's in-game behaviour or Nexus approval.
+Windows PowerShell 5.1 loaded the helper source and correctly detected the primary display. Private-fixture tests passed for all four presets, custom mode generation, encrypted-script round trips, installation, repeated updates, exact undo, restoration of a recognized prior addon, unsupported-build refusal, changed-file refusal and preservation of unrelated files. Generated Lua bytecode and TTARCH2 structure are checked separately. These are installation/generation checks, not proof of every resolution's in-game behaviour.
 
 This is an unofficial community modification. See THIRD-PARTY-NOTICES.txt for implementation credits.

@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'releases/The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.0.7z'
+      - 'releases/The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.1.7z'
   workflow_dispatch:
 permissions:
   contents: write
@@ -19,16 +19,18 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for file in The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.0.7z The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.0.7z.sha256 v0.1.0-powershell-notes.md; do
+          for file in The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.1.7z The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.1.7z.sha256 v0.1.1-powershell-notes.md; do
             gh api "repos/$GH_REPO/contents/releases/$file?ref=$COMMIT" --jq .content | tr -d '\n' | base64 --decode > "$file"
           done
-          sha256sum --check The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.0.7z.sha256
+          sha256sum --check The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.1.7z.sha256
       - name: Publish test release
         shell: bash
         run: |
           set -euo pipefail
-          if gh release view v0.1.0-powershell --repo "$GH_REPO" >/dev/null 2>&1; then
-            echo 'Release v0.1.0-powershell already exists; leaving its assets unchanged.'
+          if gh release view v0.1.1-powershell --repo "$GH_REPO" >/dev/null 2>&1; then
+            echo 'Release v0.1.1-powershell already exists; leaving its assets unchanged.'
             exit 0
           fi
-          gh release create v0.1.0-powershell --repo "$GH_REPO" --target "$COMMIT" --prerelease --title 'Ultrawide Fix 0.1.0 - PowerShell edition (test release)' --notes-file v0.1.0-powershell-notes.md The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.0.7z The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.0.7z.sha256
+          gh api "repos/$GH_REPO/contents/releases/v0.1.0-powershell-notes.md?ref=$COMMIT" --jq .content | tr -d '\n' | base64 --decode > previous-notes.md
+          gh release edit v0.1.0-powershell --repo "$GH_REPO" --notes-file previous-notes.md
+          gh release create v0.1.1-powershell --repo "$GH_REPO" --target "$COMMIT" --prerelease --title 'Ultrawide Fix 0.1.1 - PowerShell edition (test release)' --notes-file v0.1.1-powershell-notes.md The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.1.7z The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.1.7z.sha256
