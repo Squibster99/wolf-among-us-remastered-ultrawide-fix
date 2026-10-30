@@ -1,0 +1,13 @@
+IMPLEMENTATION CREDITS / PROVENANCE
+
+The setup interface, guarded executable patch, resolution generator and undo logic were created for this ultrawide fix. The rendering correction changes a single flag byte; the original game executable is not distributed.
+
+Game scripts/assets and game names remain the property of their respective rights holders. The setup embeds only the modified resolution-menu script needed for this mod, plus its small loader description.
+
+The script encryption implementation is the existing BlowFishCS source from TTG Tools, preserving its upstream authorship comments in the local reproducible source project:
+https://github.com/HeitorSpectre/TTG-Tools/blob/master/master/Core/blowfish.cs
+Its header credits Taylor Hornby (2010), Daniel Rench, Pavel Sudakov and aluigi. No claim of authorship over that implementation is made.
+
+Build-only tools (not included in this player package): the existing custom-compatible Lua 5.2 compiler, the local TTARCH2 inspection code, the Windows C# compiler, and official 7-Zip tooling. The setup generates one TTARCH2 addon; it does not require players to install these build tools.
+
+Development source, build scripts, original reference material and private test fixtures are kept separately from the player package. Full game executables, saves and test profiles are excluded from this release.

@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "fixture_modes": [
+    "2560x1080",
+    "3000x1250",
+    "3440x1440",
+    "3840x1600",
+    "5120x1440"
+  ],
+  "compiled_generated_bytecode_valid": true,
+  "archive_structure_valid": true,
+  "install_update_undo_fixture_tests": "passed",
+  "unsupported_and_changed_file_refusal": "passed",
+  "live_resolution_tests": [
+    "3440x1440: existing underlying fix player-confirmed before release"
+  ],
+  "new_setup_gui": "compiled; desktop UI not yet checked",
+  "other_resolutions": "offered for testing; no in-game claim",
+  "current_installation_modified": false
+}
