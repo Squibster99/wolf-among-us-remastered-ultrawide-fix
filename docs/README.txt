@@ -1,9 +1,23 @@
 THE WOLF AMONG US REMASTERED — ULTRAWIDE FIX
-Version 0.1.0 • Community test release • 30 October 2026
+Version 0.1.2 • Community test release • 30 October 2026
 
 WHAT IT DOES
 
 Removes the game's forced 16:9 rendering restriction and adds common ultrawide resolutions to its graphics menu. A small Windows setup tool lets you add your own resolution too.
+
+UPDATING FROM AN EARLIER SETUP
+
+Close the game and run this setup, choose the same game folder/resolution,
+then Install / update. It can update a recognised earlier setup installation
+using its existing receipt and backups. You do not need to start a new game.
+Do not manually replace the game addon files or delete the receipt/backups.
+
+Version 0.1.2 fixes two packaging errors in earlier public setups: an incorrect
+menu resource identifier and a verification step that accidentally decrypted
+the script before saving it. Earlier packages could prevent gameplay loading.
+Both corrections are included here. If you already used Undo, install normally.
+Undo restores the state before the first installation recorded by the receipt,
+which can be an older ultrawide addon if one was present beforehand.
 
 QUICK START
 
@@ -27,7 +41,7 @@ RESOLUTIONS AND WHAT HAS ACTUALLY BEEN TESTED
 
 A resolution appearing in the menu does not prove that your display, driver or every game scene supports it correctly. Setup can accept custom dimensions between 800–16384 wide and 600–8640 high; those input limits are not a claim that all such modes work.
 
-The new setup's preset/custom generation, bytecode/archive output, installation, update, exact undo, prior-version restoration and changed-file checks were tested on private game-copy fixtures. The setup window itself has not had a desktop interaction test. The new generalized menu package has not received a complete in-game playthrough. Treat this as an initial test release, not a guarantee of flawless support for every screen.
+The setup's preset/custom generation, bytecode/archive output, installation, update, exact undo, prior-version restoration and changed-file checks were tested on private game-copy fixtures. The setup window itself has not had a desktop interaction test. The corrected graphical test build loaded a save into gameplay successfully at 3440x1440; a complete in-game playthrough has not been performed. Treat this as an initial test release, not a guarantee of flawless support for every screen.
 
 KNOWN LIMITATIONS
 

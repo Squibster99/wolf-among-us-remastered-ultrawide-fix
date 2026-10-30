@@ -1,0 +1,40 @@
+name: Publish corrected ultrawide 0.1.2
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'releases/The-Wolf-Among-Us-Remastered-Ultrawide-Fix-0.1.2.7z'
+      - 'releases/The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.2.7z'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+      COMMIT: ${{ github.sha }}
+    steps:
+      - name: Fetch committed packages and verify checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in The-Wolf-Among-Us-Remastered-Ultrawide-Fix-0.1.2.7z The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.2.7z The-Wolf-Among-Us-Remastered-Ultrawide-Fix-0.1.2.7z.sha256 The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.2.7z.sha256 v0.1.2-notes.md v0.1.2-powershell-notes.md v0.1.0-notes.md v0.1.0-powershell-notes.md v0.1.1-powershell-notes.md; do
+            gh api "repos/$GH_REPO/contents/releases/$file?ref=$COMMIT" --jq .content | tr -d '\n' | base64 --decode > "$file"
+          done
+          sha256sum --check The-Wolf-Among-Us-Remastered-Ultrawide-Fix-0.1.2.7z.sha256
+          sha256sum --check The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.2.7z.sha256
+      - name: Publish corrected editions and mark earlier versions superseded
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! gh release view v0.1.2 --repo "$GH_REPO" >/dev/null 2>&1; then
+            gh release create v0.1.2 --repo "$GH_REPO" --target "$COMMIT" --prerelease --title 'Ultrawide Fix 0.1.2 - loading correction' --notes-file v0.1.2-notes.md The-Wolf-Among-Us-Remastered-Ultrawide-Fix-0.1.2.7z The-Wolf-Among-Us-Remastered-Ultrawide-Fix-0.1.2.7z.sha256
+          fi
+          if ! gh release view v0.1.2-powershell --repo "$GH_REPO" >/dev/null 2>&1; then
+            gh release create v0.1.2-powershell --repo "$GH_REPO" --target "$COMMIT" --prerelease --title 'Ultrawide Fix 0.1.2 - PowerShell loading correction' --notes-file v0.1.2-powershell-notes.md The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.2.7z The-Wolf-Among-Us-Remastered-Ultrawide-Fix-PowerShell-0.1.2.7z.sha256
+          fi
+          gh release edit v0.1.0 --repo "$GH_REPO" --title 'Ultrawide Fix 0.1.0 - superseded' --notes-file v0.1.0-notes.md
+          gh release edit v0.1.0-powershell --repo "$GH_REPO" --title 'Ultrawide Fix PowerShell 0.1.0 - superseded' --notes-file v0.1.0-powershell-notes.md
+          gh release edit v0.1.1-powershell --repo "$GH_REPO" --title 'Ultrawide Fix PowerShell 0.1.1 - superseded' --notes-file v0.1.1-powershell-notes.md

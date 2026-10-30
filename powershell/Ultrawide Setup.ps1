@@ -1,4 +1,4 @@
-# The Wolf Among Us Remastered - Ultrawide Fix, PowerShell edition 0.1.0
+# The Wolf Among Us Remastered - Ultrawide Fix, PowerShell edition 0.1.2
 [CmdletBinding()]
 param(
     [ValidateSet('Menu','Install','Undo','Check')][string]$Action='Menu',

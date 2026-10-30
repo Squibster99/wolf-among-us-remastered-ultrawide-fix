@@ -1,22 +1,20 @@
 {
-  "edition": "PowerShell 0.1.0",
-  "engine": "Windows PowerShell 5.1",
-  "helper_source_load": true,
-  "primary_display_detection": "3440x1440 observed",
-  "console_menu_exit": true,
-  "check_action": true,
-  "fixture_install_update_undo": true,
-  "presets": [
-    "2560x1080",
-    "3440x1440",
-    "3840x1600",
-    "5120x1440"
-  ],
-  "custom_test": "3000x1250",
-  "lua_bytecode_and_archive_checks": true,
-  "unsupported_and_changed_file_refusal": true,
-  "prior_installation_restoration": true,
-  "game_installation_modified": false,
-  "full_gameplay": "Not repeated; underlying rendering fix at 3440x1440 player-confirmed earlier",
-  "nexus_approval": "User reports PowerShell package quarantined; not approved"
+    "version":  "0.1.2",
+    "modes":  [
+                  "2560x1080",
+                  "3440x1440",
+                  "3840x1600",
+                  "5120x1440",
+                  "3000x1250"
+              ],
+    "independent_filename_CRC64":  true,
+    "final_archive_payload_decrypted_compared_and_parsed":  true,
+    "graphical_and_powershell_archive_bytes_identical":  true,
+    "install_update_exact_undo_and_refusal_checks":  "passed",
+    "previous_broken_graphical_install_update_and_undo":  "passed",
+    "stripped_lua_matches_player_tested_v2":  true,
+    "player_confirmation":  "Corrected graphical v2: save loaded into gameplay at 3440x1440",
+    "other_modes_gameplay":  "Not confirmed",
+    "full_playthrough":  "Not performed",
+    "installed_game_modified":  false
 }

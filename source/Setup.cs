@@ -9,7 +9,7 @@ internal static class Setup {
 }
 internal sealed class SetupForm:Form {
  TextBox folder,status;ComboBox modes;NumericUpDown width,height;Button install,undo;
- internal SetupForm(){Text="The Wolf Among Us Remastered — Ultrawide Fix 0.1.0";ClientSize=new Size(710,460);Font=new Font("Segoe UI",10);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;StartPosition=FormStartPosition.CenterScreen;
+ internal SetupForm(){Text="The Wolf Among Us Remastered — Ultrawide Fix 0.1.2";ClientSize=new Size(710,460);Font=new Font("Segoe UI",10);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;StartPosition=FormStartPosition.CenterScreen;
   Controls.Add(new Label{Text="Ultrawide Fix",Font=new Font(Font.FontFamily,17,FontStyle.Bold),AutoSize=true,Location=new Point(22,18)});
   Controls.Add(new Label{Text="For the supported Windows build only. 3440×1440 is player-tested; other modes are trials.",AutoSize=true,Location=new Point(24,61)});
   Controls.Add(new Label{Text="Game folder",AutoSize=true,Location=new Point(24,100)});folder=new TextBox{Location=new Point(24,124),Size=new Size(558,27)};Controls.Add(folder);

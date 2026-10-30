@@ -1,20 +1,20 @@
 {
-  "version": "0.1.0",
-  "fixture_modes": [
-    "2560x1080",
-    "3000x1250",
-    "3440x1440",
-    "3840x1600",
-    "5120x1440"
-  ],
-  "compiled_generated_bytecode_valid": true,
-  "archive_structure_valid": true,
-  "install_update_undo_fixture_tests": "passed",
-  "unsupported_and_changed_file_refusal": "passed",
-  "live_resolution_tests": [
-    "3440x1440: existing underlying fix player-confirmed before release"
-  ],
-  "new_setup_gui": "compiled; desktop UI not yet checked",
-  "other_resolutions": "offered for testing; no in-game claim",
-  "current_installation_modified": false
+    "version":  "0.1.2",
+    "modes":  [
+                  "2560x1080",
+                  "3440x1440",
+                  "3840x1600",
+                  "5120x1440",
+                  "3000x1250"
+              ],
+    "independent_filename_CRC64":  true,
+    "final_archive_payload_decrypted_compared_and_parsed":  true,
+    "graphical_and_powershell_archive_bytes_identical":  true,
+    "install_update_exact_undo_and_refusal_checks":  "passed",
+    "previous_broken_graphical_install_update_and_undo":  "passed",
+    "stripped_lua_matches_player_tested_v2":  true,
+    "player_confirmation":  "Corrected graphical v2: save loaded into gameplay at 3440x1440",
+    "other_modes_gameplay":  "Not confirmed",
+    "full_playthrough":  "Not performed",
+    "installed_game_modified":  false
 }

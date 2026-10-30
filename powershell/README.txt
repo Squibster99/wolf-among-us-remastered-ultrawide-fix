@@ -1,11 +1,25 @@
 THE WOLF AMONG US REMASTERED - ULTRAWIDE FIX
-PowerShell edition 0.1.1 - community test release
+PowerShell edition 0.1.2 - community test release
 
 WHAT IT DOES
 
 Removes the supported game's forced 16:9 rendering restriction and adds common ultrawide resolutions to its graphics menu. A console menu lets you pick a preset or enter custom dimensions. Setup can also undo its changes.
 
 This edition uses Windows PowerShell 5.1 and included readable C# helper source. PowerShell compiles that source locally using the Windows .NET Framework, then loads it.
+
+UPDATING FROM AN EARLIER SETUP
+
+Close the game and run this setup, choose the same game folder/resolution,
+then Install / update. It can update a recognised earlier setup installation
+using its existing receipt and backups. You do not need to start a new game.
+Do not manually replace the game addon files or delete the receipt/backups.
+
+Version 0.1.2 fixes two packaging errors in earlier public setups: an incorrect
+menu resource identifier and a verification step that accidentally decrypted
+the script before saving it. Earlier packages could prevent gameplay loading.
+Both corrections are included here. If you already used Undo, install normally.
+Undo restores the state before the first installation recorded by the receipt,
+which can be an older ultrawide addon if one was present beforehand.
 
 QUICK START
 
@@ -18,7 +32,7 @@ QUICK START
 
 If the game is in a protected folder such as Program Files and you see an access-denied message, open Windows PowerShell as administrator and run the script from there. Open Start, search for "Windows PowerShell", then choose "Run as administrator". Use the full path to the extracted script, for example:
 
-  & "C:\Mods\Ultrawide-Fix-PowerShell-0.1.1\Ultrawide Setup.ps1"
+  & "C:\Mods\Ultrawide-Fix-PowerShell-0.1.2\Ultrawide Setup.ps1"
 
 Use Windows PowerShell (powershell.exe), not PowerShell 7 (pwsh.exe). You can also open Windows PowerShell, change to the extracted folder and run:
 
@@ -28,7 +42,7 @@ POWERSHELL SCRIPT POLICY
 
 Some systems block local scripts by default. A process-only RemoteSigned setting can be used for this run:
 
-  powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File "C:\Mods\Ultrawide-Fix-PowerShell-0.1.1\Ultrawide Setup.ps1"
+  powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File "C:\Mods\Ultrawide-Fix-PowerShell-0.1.2\Ultrawide Setup.ps1"
 
 This setting applies to that PowerShell process, not the saved system policy. RemoteSigned still applies its checks to files marked as downloaded; managed policies can also prevent script execution. The mod does not alter execution policy, registry or antivirus settings itself.
 
@@ -44,7 +58,7 @@ Setup adds the common presets plus your selected custom mode. Select a mode your
 
 KNOWN LIMITS
 
-Menus keep their original centred layout. Wider scenes can expose scenery and transition edges outside the intended framing. Every episode, cinematic, dialogue layout and QTE has not been exhaustively tested. Other mods replacing Menu_settings.lua may conflict. This PowerShell edition has not had a new full in-game playthrough.
+Menus keep their original centred layout. Wider scenes can expose scenery and transition edges outside the intended framing. Every episode, cinematic, dialogue layout and QTE has not been exhaustively tested. Other mods replacing Menu_settings.lua may conflict. The corrected graphical test build loaded a save into gameplay at 3440x1440. This PowerShell edition uses the same corrected generator; a new full playthrough has not been performed.
 
 SUPPORTED BUILD
 

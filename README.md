@@ -1,48 +1,51 @@
-# The Wolf Among Us Remastered — Ultrawide Fix
+# The Wolf Among Us Remastered - Ultrawide Fix
 
-An unofficial ultrawide fix for the supported Windows x64 build. The setup removes the forced 16:9 rendering restriction, adds common ultrawide resolutions to the graphics menu, and accepts custom dimensions.
+**Use version 0.1.2 or newer.** Earlier public packages had script-packaging errors that could prevent a save from loading into gameplay. Version 0.1.2 fixes both errors. The corrected graphical test build was confirmed to load into gameplay at 3440 x 1440; other modes and a complete playthrough remain unverified.
 
-## Download
+## Download and install
 
-[GitHub releases](https://github.com/saqibahmad765-commits/wolf-among-us-remastered-ultrawide-fix/releases) contain the player package. You can also [download version 0.1.0 directly](releases/The-Wolf-Among-Us-Remastered-Ultrawide-Fix-0.1.0.7z?raw=true) and its [SHA-256 checksum](releases/The-Wolf-Among-Us-Remastered-Ultrawide-Fix-0.1.0.7z.sha256).
+Choose one setup interface for the same fix:
 
-Extract the archive, close the game, run **Ultrawide Setup.exe**, select the game folder and your resolution, then click **Install / update**. Select the resolution inside the game's graphics settings afterwards. Use **Undo setup changes** to restore the pre-install state.
+- **[Graphical setup 0.1.2](https://github.com/saqibahmad765-commits/wolf-among-us-remastered-ultrawide-fix/releases/tag/v0.1.2)**: download the `.7z` under Assets, extract it, close the game and run `Ultrawide Setup.exe`.
+- **[PowerShell setup 0.1.2](https://github.com/saqibahmad765-commits/wolf-among-us-remastered-ultrawide-fix/releases/tag/v0.1.2-powershell)**: extract the complete folder and run `Ultrawide Setup.ps1` in **Windows PowerShell 5.1** (`powershell.exe`, not PowerShell 7). Read its instructions for protected-folder permissions and script-policy troubleshooting.
 
-## PowerShell alternative
+Choose the game folder and your resolution, then Install / update. Afterwards select that resolution in the game's graphics settings. Use the `.7z` player package, rather than GitHub's automatic Source code downloads. Both editions include a README and checksum. The PowerShell edition includes readable C# helpers compiled locally and bundles no EXE or DLL.
 
-Prefer a console menu? Download the **[PowerShell edition 0.1.1](https://github.com/saqibahmad765-commits/wolf-among-us-remastered-ultrawide-fix/releases/tag/v0.1.1-powershell)** and choose the `.7z` file under Assets. It includes the full package and player instructions; you do not need to clone this repository.
+## Updating or undoing
 
-Extract the complete folder, close the game, and run **Ultrawide Setup.ps1** using **Windows PowerShell 5.1** (`powershell.exe`, not PowerShell 7). It offers presets, custom dimensions, build checks, backups and undo. Select your resolution inside the game afterwards. See the [PowerShell player README](powershell/README.txt) for permissions, script-policy troubleshooting and removal.
+Close the game, run the new setup and choose the same folder/resolution, then Install / update. A recognised existing setup can be updated directly, including the earlier broken public versions. If you already used Undo, install normally. No new game is required.
 
-This edition ships readable PowerShell/C# source and a compatible Lua template, with no bundled EXE or DLL. Windows compiles the helpers locally. The source is in [`powershell/`](powershell/); no separate build step is needed. Both setup editions share the same installation receipt and backup format. Choose whichever interface you prefer for the same ultrawide correction.
+Keep `UltrawideFix.install.xml` and the dated backup folders beside the game executable. Do not manually replace addon files: their hashes are recorded for guarded updates/removal. Undo returns to the state before the first installation recorded in the receipt, which can include an older ultrawide addon. Saves and current preferences are preserved.
 
-PowerShell loading, display detection and installation/update/undo checks passed private-copy tests. A new full gameplay test has not been performed. The existing resolution/framing limitations apply to both editions.
+## Features and limits
 
-## Support and limitations
+Removes the supported executable's forced 16:9 rendering restriction and adds ultrawide presets plus a custom mode to its graphics menu.
 
-- **3440×1440:** the underlying rendering correction is player-confirmed.
-- **2560×1080 and 3840×1600:** offered for testing; not confirmed in-game.
-- **5120×1440:** experimental 32:9 option.
-- **Custom dimensions:** offered for testing; choose a mode supported by your display.
+- **3440 x 1440:** corrected graphical test build confirmed loading a save into gameplay.
+- **2560 x 1080 and 3840 x 1600:** offered for testing; not confirmed in-game.
+- **5120 x 1440:** experimental 32:9 option.
+- **Custom dimensions:** choose a mode your display supports; input limits do not guarantee compatibility.
 
-Menus retain their original centred layout. Wider views can expose scenery and transition edges. All episodes, cinematics, dialogue and QTE layouts have not been exhaustively tested. This is an initial **test release**. The setup's install/update/undo, archive generation and refusal checks passed private-fixture tests; the graphical setup and generalized menu have not received a complete desktop/gameplay test.
+Menus retain their original centred layout, and wider views can expose scenery or transition edges outside the intended framing. All episodes, cinematics, dialogue and QTE layouts have not been exhaustively tested. Other mods replacing `Menu_settings.lua` can conflict. These remain community test releases.
 
-Setup checks the entire executable and refuses other builds. Supported original SHA-256:
+Setup supports the investigated Windows x64 executable associated with resource build PCS.18.3.7585 and checks its complete hash. Supported original SHA-256: `e8cedcf34066760e480689d44964dc5596f5585c77a19a2627786a8163a65616`.
 
-```text
-e8cedcf34066760e480689d44964dc5596f5585c77a19a2627786a8163a65616
-```
+Full instructions: [graphical README](docs/README.txt), [PowerShell README](powershell/README.txt).
 
-See the [full player readme](docs/README.txt) for installation, compatibility, backups and undo details.
+## What changed in 0.1.2
+
+Corrected the menu script's TTARCH2 resource identifier. Also corrected encryption verification to decrypt a copy, preserving the encrypted bytes that are written into the game addon. Previously, the check mutated the output into plaintext while retaining an encrypted marker.
+
+Regression checks now validate the independent filename identifier and decrypt the actual final archive payload, compare it with the generated Lua chunk and parse it with the compatible compiler. Both editions generate identical addon bytes for four presets and a custom test mode. Private install/update/undo, refusal checks and migration from the old broken graphical setup passed. The stripped release script matches the player-tested corrected script without its debug metadata.
 
 ## Source and build
 
-- `source/Core.cs`: exact-build patch, resolution generator, install/update/undo checks.
-- `source/Setup.cs`: Windows Forms interface.
-- `source/Menu_settings.lua`: modified resolution-menu script.
-- `source/Blowfish.cs`: existing TTG Tools encryption implementation, with upstream credits retained.
-- `assets/Menu_settings.template.luac`: stripped, compatible Lua bytecode for building without a Lua compiler.
-- `Build.ps1`: portable Windows build script; [build details](docs/BUILD.md).
-- `tests/validation.json`: validation summary and honest limits.
+- `source/Core.cs`: guarded patch, generator, installation and undo.
+- `source/Setup.cs`: graphical interface.
+- `source/FormatChecks.cs`: final archive regression checks.
+- `source/Menu_settings.lua` and `assets/Menu_settings.template.luac`: readable menu source and compatible stripped template.
+- `powershell/`: complete PowerShell source/package, including C# helpers.
+- `Build.ps1`: portable graphical build script; [build details](docs/BUILD.md).
+- `tests/validation.json`: validation scope and limits.
 
-Original setup code, upstream cryptography and game-derived script material have different provenance. See [third-party notices](THIRD-PARTY-NOTICES.txt); no blanket licence is asserted over the game-derived or upstream material.
+See [third-party notices](THIRD-PARTY-NOTICES.txt) for provenance. No blanket licence is asserted over upstream or game-derived material. The game executable and private test fixtures are not distributed.

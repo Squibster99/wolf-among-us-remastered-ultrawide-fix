@@ -1,4 +1,4 @@
--- Ultrawide Fix 0.1.0: resolution menu addon, PCS.18.3.7585
+-- Ultrawide Fix 0.1.2: resolution menu addon, PCS.18.3.7585
 local set = {}
 set.name = "Ultrawide"
 set.setName = "Ultrawide"
@@ -8,7 +8,7 @@ set.logicalDestination = "<>"
 set.priority = 110
 set.localDir = _currentDirectory
 set.enableMode = "constant"
-set.version = "UltrawideFix-0.1.0"
+set.version = "UltrawideFix-0.1.2"
 set.descriptionPriority = 0
 set.gameDataName = "Ultrawide Game Data"
 set.gameDataPriority = 0
