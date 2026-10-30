@@ -1,0 +1,22 @@
+{
+  "edition": "PowerShell 0.1.0",
+  "engine": "Windows PowerShell 5.1",
+  "helper_source_load": true,
+  "primary_display_detection": "3440x1440 observed",
+  "console_menu_exit": true,
+  "check_action": true,
+  "fixture_install_update_undo": true,
+  "presets": [
+    "2560x1080",
+    "3440x1440",
+    "3840x1600",
+    "5120x1440"
+  ],
+  "custom_test": "3000x1250",
+  "lua_bytecode_and_archive_checks": true,
+  "unsupported_and_changed_file_refusal": true,
+  "prior_installation_restoration": true,
+  "game_installation_modified": false,
+  "full_gameplay": "Not repeated; underlying rendering fix at 3440x1440 player-confirmed earlier",
+  "nexus_approval": "User reports PowerShell package quarantined; not approved"
+}

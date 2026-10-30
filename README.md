@@ -8,6 +8,16 @@ An unofficial ultrawide fix for the supported Windows x64 build. The setup remov
 
 Extract the archive, close the game, run **Ultrawide Setup.exe**, select the game folder and your resolution, then click **Install / update**. Select the resolution inside the game's graphics settings afterwards. Use **Undo setup changes** to restore the pre-install state.
 
+## PowerShell alternative
+
+Prefer a console menu? Download the **[PowerShell edition 0.1.0](https://github.com/saqibahmad765-commits/wolf-among-us-remastered-ultrawide-fix/releases/tag/v0.1.0-powershell)** and choose the `.7z` file under Assets. It includes the full package and player instructions; you do not need to clone this repository.
+
+Extract the complete folder, close the game, and run **Ultrawide Setup.ps1** using **Windows PowerShell 5.1** (`powershell.exe`, not PowerShell 7). It offers presets, custom dimensions, build checks, backups and undo. Select your resolution inside the game afterwards. See the [PowerShell player README](powershell/README.txt) for permissions, script-policy troubleshooting and removal.
+
+This edition ships readable PowerShell/C# source and a compatible Lua template, with no bundled EXE or DLL. Windows compiles the helpers locally. The source is in [`powershell/`](powershell/); no separate build step is needed. Both setup editions share the same installation receipt and backup format. Choose whichever interface you prefer for the same ultrawide correction.
+
+PowerShell loading, display detection and installation/update/undo checks passed private-copy tests. A new full gameplay test has not been performed. Nexus quarantined the PowerShell package as well; its availability here does not mean Nexus has approved it. The existing resolution/framing limitations apply to both editions.
+
 ## Support and limitations
 
 - **3440×1440:** the underlying rendering correction is player-confirmed.
