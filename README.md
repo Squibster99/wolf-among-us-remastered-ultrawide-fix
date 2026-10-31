@@ -1,6 +1,6 @@
 # The Wolf Among Us Remastered - Ultrawide Fix
 
-**Use version 0.1.2 or newer.** Earlier public packages had script-packaging errors that could prevent a save from loading into gameplay. Version 0.1.2 fixes both errors. The corrected graphical test build was confirmed to load into gameplay at 3440 x 1440; other modes and a complete playthrough remain unverified.
+**Use version 0.1.2 or newer.** Earlier public packages had script-packaging errors that could prevent a save from loading into gameplay. Version 0.1.2 fixes both errors. The corrected graphical test build was confirmed to load into gameplay at 3440 x 1440; other modes and a complete playthrough remain unverified. Also check out my other Wolf Among Us Remastered mods here:https://www.nexusmods.com/profile/Squibster99/mods?gameId=4646 
 
 ## Download and install
 
