@@ -6,8 +6,8 @@
 
 Choose one setup interface for the same fix:
 
-- **[Graphical setup 0.1.2](https://github.com/saqibahmad765-commits/wolf-among-us-remastered-ultrawide-fix/releases/tag/v0.1.2)**: download the `.7z` under Assets, extract it, close the game and run `Ultrawide Setup.exe`.
-- **[PowerShell setup 0.1.2](https://github.com/saqibahmad765-commits/wolf-among-us-remastered-ultrawide-fix/releases/tag/v0.1.2-powershell)**: extract the complete folder and run `Ultrawide Setup.ps1` in **Windows PowerShell 5.1** (`powershell.exe`, not PowerShell 7). Read its instructions for protected-folder permissions and script-policy troubleshooting.
+- **[Graphical setup 0.1.2](https://github.com/Squibster99/wolf-among-us-remastered-ultrawide-fix/releases/tag/v0.1.2)**: download the `.7z` under Assets, extract it, close the game and run `Ultrawide Setup.exe`.
+- **[PowerShell setup 0.1.2](https://github.com/Squibster99/wolf-among-us-remastered-ultrawide-fix/releases/tag/v0.1.2-powershell)**: extract the complete folder and run `Ultrawide Setup.ps1` in **Windows PowerShell 5.1** (`powershell.exe`, not PowerShell 7). Read its instructions for protected-folder permissions and script-policy troubleshooting.
 
 Choose the game folder and your resolution, then Install / update. Afterwards select that resolution in the game's graphics settings. Use the `.7z` player package, rather than GitHub's automatic Source code downloads. Both editions include a README and checksum. The PowerShell edition includes readable C# helpers compiled locally and bundles no EXE or DLL.
 
